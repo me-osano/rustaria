@@ -89,6 +89,6 @@ See [extension/README.md](extension/README.md) for build and install instruction
 }
 ```
 
-## License
+## 📄 License
 
-MIT
+MIT License - see [LICENSE](./LICENSE) for details.
