@@ -1,0 +1,95 @@
+# rustaria configuration
+# Place this file at ~/.config/rustaria/config.toml or in the project root.
+
+[general]
+# Default download directory
+download_dir = "~/Downloads"
+
+# Maximum concurrent downloads
+max_concurrent = 5
+
+# Enable clipboard monitoring
+clipboard_monitor = true
+
+# Patterns to match URLs from clipboard (regex)
+clipboard_patterns = [
+  "^https?://.*\\.(zip|tar\\.gz|iso|dmg|exe|msi)$",
+  "^https?://.*\\.(mp4|mkv|avi|mov|webm)$",
+  "^https?://.*\\.(mp3|flac|wav|aac|ogg)$",
+]
+
+[aria2]
+# aria2 JSON-RPC endpoint
+rpc_url = "http://127.0.0.1:6800/jsonrpc"
+
+# RPC secret token (leave empty if not set in aria2)
+rpc_secret = ""
+
+# Auto-start aria2c daemon if not running
+auto_start = true
+
+# Path to aria2c binary (uses $PATH if empty)
+binary_path = ""
+
+# Extra arguments passed to aria2c
+extra_args = ["--max-connection-per-server=16", "--split=16"]
+
+[scheduler]
+# Enable time-based scheduling
+enabled = false
+
+# Cron expression for active download window (e.g., nights only)
+# active_window = "0 0 1-6 * * *"
+
+# Bandwidth limit during active window (0 = unlimited)
+bandwidth_limit = 0
+
+[postprocess]
+# Auto-organize downloaded files into category folders
+auto_organize = true
+
+# Category rules (extension -> folder)
+[postprocess.categories]
+video = ["mp4", "mkv", "avi", "mov", "webm"]
+audio = ["mp3", "flac", "wav", "aac", "ogg"]
+documents = ["pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx"]
+archives = ["zip", "tar", "gz", "rar", "7z"]
+images = ["jpg", "jpeg", "png", "gif", "webp", "svg"]
+
+# Auto-extract archives after download
+auto_extract = false
+
+# Merge HLS/DASH fragments with FFmpeg
+merge_media = true
+
+# Path to FFmpeg binary (uses $PATH if empty)
+ffmpeg_path = ""
+
+[hooks]
+# Shell commands to run on events
+# on_complete = "notify-send 'Download complete' '$FILENAME'"
+# on_error = ""
+# on_queue_empty = ""
+
+[ui]
+# TUI color scheme: "dark" | "light" | "dracula" | "nord"
+theme = "dark"
+
+# Refresh rate in milliseconds
+refresh_rate = 250
+
+# Show speed graph
+show_graph = true
+
+[notifications]
+# Enable desktop notifications
+enabled = true
+
+# Notify on download complete
+on_complete = true
+
+# Notify on error
+on_error = true
+
+# Notify when queue becomes empty
+on_queue_empty = false

@@ -1,0 +1,83 @@
+[package]
+name = "rustaria"
+version = "0.1.0"
+edition = "2024"
+authors = ["Enosh Misonge Osano <osanoenosh@gmail.com>"]
+description = "A Rust download manager powered by aria2"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/me-osano/rustaria"
+
+[dependencies]
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# HTTP client for JSON-RPC
+reqwest = { version = "0.12", features = ["json", "cookies"] }
+
+# WebSocket for aria2 real-time events
+tokio-tungstenite = { version = "0.24", features = ["native-tls"] }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Async SQLite database
+sqlx = { version = "0.8", features = ["sqlite", "runtime-tokio"] }
+
+# Terminal UI
+ratatui = "0.29"
+crossterm = "0.28"
+
+# CLI argument parsing
+clap = { version = "4", features = ["derive"] }
+
+# Config file parsing
+toml = "0.8"
+
+# Desktop notifications
+notify-rust = "4"
+
+# Clipboard monitoring
+arboard = "3"
+
+# File type detection
+mime_guess = "2"
+
+# Structured logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Error handling
+anyhow = "1"
+thiserror = "2"
+
+# Scheduling
+tokio-cron-scheduler = "0.13"
+
+# Archive extraction
+zip = "2"
+tar = "0.4"
+flate2 = "1"
+
+# Binary serialization for session persistence
+bincode = "1"
+
+# Regex for pattern matching
+regex = "1"
+
+# Date/time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# Shell expansion for paths
+shellexpand = "3"
+
+# Futures utilities
+futures-util = "0.3"
+
+[dev-dependencies]
+tokio-test = "0.4"
+
+[[bin]]
+name = "rustaria"
+path = "src/main.rs"
